@@ -13,9 +13,11 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
   const [searchTerm, setSearchTerm] = useState(searchParams.get("query") || "");
 
+  const params = new URLSearchParams(searchParams);
+
   const handleSearch = useDebouncedCallback((term: string) => {
     console.log(`Searching... ${term}`);
-    const params = new URLSearchParams(searchParams);
+    params.set("page", "1");
     if (term) {
       params.set("query", term);
     } else {
@@ -26,8 +28,11 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
   const resetSearch = () => {
     console.log("reset");
-    setSearchTerm(""); // Clear input UI
-    replace(pathname); // Remove all query params
+    setSearchTerm("");
+    params.set("page", "1");
+    params.delete("query");
+    replace(`${pathname}?${params.toString()}`);
+    // replace(pathname); //// Remove all query params
   };
 
   return (
@@ -39,7 +44,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
         className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder={placeholder}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          const term = event.target.value;
+          const term = event.target.value.trim();
           setSearchTerm(term);
           handleSearch(term);
         }}
