@@ -87,11 +87,8 @@ export type InvoiceForm = {
   status: "pending" | "paid";
 };
 
-export type TableRowSkeletonTypes = {
-  type: "customer" | "invoice";
+export type CustomerForm = {
+  id: string;
+  name: string;
+  email: string;
 };
-
-export enum TableRowSkeletonTypesEnum {
-  customer = "customer",
-  invoice = "invoice",
-}

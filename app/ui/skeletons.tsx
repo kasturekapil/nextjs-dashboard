@@ -1,7 +1,3 @@
-import {
-  TableRowSkeletonTypesEnum,
-  TableRowSkeletonTypes,
-} from "@/app/lib/definitions";
 // Loading animation
 const shimmer =
   "before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent";
@@ -106,7 +102,7 @@ export default function DashboardSkeleton() {
   );
 }
 
-export function TableRowSkeleton(type: TableRowSkeletonTypes) {
+export function TableRowSkeleton() {
   return (
     <tr className="w-full border-b border-gray-100 last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
       {/* Customer Name and Image */}
@@ -133,14 +129,12 @@ export function TableRowSkeleton(type: TableRowSkeletonTypes) {
         <div className="h-6 w-16 rounded bg-gray-100"></div>
       </td>
       {/* Actions */}
-      {type.type === TableRowSkeletonTypesEnum.invoice && (
-        <td className="whitespace-nowrap py-3 pl-6 pr-3">
-          <div className="flex justify-end gap-3">
-            <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
-            <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
-          </div>
-        </td>
-      )}
+      <td className="whitespace-nowrap py-3 pl-6 pr-3">
+        <div className="flex justify-end gap-3">
+          <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
+          <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
+        </div>
+      </td>
     </tr>
   );
 }
@@ -209,12 +203,12 @@ export function InvoicesTableSkeleton() {
               </tr>
             </thead>
             <tbody className="bg-white">
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.invoice} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.invoice} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.invoice} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.invoice} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.invoice} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.invoice} />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
             </tbody>
           </table>
         </div>
@@ -257,12 +251,12 @@ export function CustomersTableSkeleton() {
               </tr>
             </thead>
             <tbody className="bg-white">
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.customer} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.customer} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.customer} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.customer} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.customer} />
-              <TableRowSkeleton type={TableRowSkeletonTypesEnum.customer} />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
             </tbody>
           </table>
         </div>
