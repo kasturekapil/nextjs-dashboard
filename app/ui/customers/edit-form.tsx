@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import Link from "next/link";
-import { EnvelopeIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { AtSymbolIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import { Button } from "@/app/ui/button";
 import { updateCustomer, CustomerState } from "@/app/lib/actions";
 import { CustomerForm } from "@/app/lib/definitions";
@@ -66,7 +66,7 @@ export default function EditCustomerForm({
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="customer-error"
               />
-              <EnvelopeIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+              <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
             <div id="customer-error" aria-live="polite" aria-atomic="true">
               {state.errors?.email &&
